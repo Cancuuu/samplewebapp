@@ -1,0 +1,61 @@
+
+
+.form__group {
+    position: relative;
+    top: 300px;
+    left: 800px;
+    padding: 15px 0px;
+    margin-top: 10px;
+    width: 750px;
+    margin: 20px 0px;
+
+
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 50%;
+    border: 0;
+    border-bottom: 2px solid #D89719;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  
+
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #D89719;
+  }
+
+  .form__field__submit{
+    font-family: inherit;
+    width: 50%;
+    border: 1px solid #D89719;
+    cursor: pointer;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .form__field__submit:hover{
+    transition: 0.3s;
+    background-color: #D89719;
+    color: #132243;
+
+  }
+  
+
+
+
+  
