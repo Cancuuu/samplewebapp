@@ -1,23 +1,41 @@
 import React, { Fragment, useState } from "react";
 import "./Login.css";
 import { auth } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
+import DashboardPage from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/DashboardPage/DashboardPage.jsx'
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+
 
   const logInUser = e => {
     e.preventDefault();
 
     auth
       .signInWithEmailAndPassword(email, pass)
-      .then(res => alert("user login"))
-      .catch(err => console.log(err));
+      .then(() => { return setLoggedIn(true) })
+      .catch(err => alert(err));
+
   };
+
+
 
   return (
     <Fragment>
-      <div className="form_div">
+
+      {loggedIn
+
+        ?
+        <DashboardPage />
+
+        :
+
+
+        (<div className="form_div">
         <form onSubmit={logInUser} className="form" action="">
           <div className="form__group field">
             <input
@@ -53,8 +71,14 @@ const Login = () => {
               required
             />
           </div>
-        </form>
-      </div>
+        </form> 
+        </div>)
+
+
+
+
+
+      }  
     </Fragment>
   );
 };

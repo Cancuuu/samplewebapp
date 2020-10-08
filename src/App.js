@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import LoginPage from './components/LoginPage/LoginPage';
-import Dashboard from './components/Dashboard/Dashboard';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import Dashboardage from './components/DashboardPage/DashboardPage';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -11,16 +11,16 @@ function App() {
     <Router>
     <div className="App">
         <Switch>
-          <Route path="/login" >
+          <Route exact path="/">
             <LoginPage />
-          </Route>
-          <Route path="/register" >
+          </Route> 
+          <Route exact path="/register" >
             <RegisterPage />
           </Route>
-          <Route path="/dashboard" >
-            <Dashboard />
+          <Route exact path="/DashboardPage" >
+            <Dashboardage />
           </Route>
-        </Switch>
+        </Switch>   
     </div>
     </Router>
   );
