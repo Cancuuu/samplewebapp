@@ -17,5 +17,6 @@ import "firebase/storage";
 
 const auth = firebase.auth();
 const storage = firebase.storage();
+var user = firebase.auth().currentUser;
 
-export { auth, storage };
+export { auth, storage, user };

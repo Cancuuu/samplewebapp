@@ -4,12 +4,17 @@ import {
   auth,
   storage,
 } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/Error/Error.jsx'
+
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [pic, setPic] = useState(null);
   const [userReg, setUserReg] = useState(false);
+  const [error, setError] = useState(false) 
 
   const uploadPic = e => {
     setPic(e.target.files[0]);
@@ -22,29 +27,27 @@ const Register = () => {
       .then(auth => {
         storage.ref("users/" + auth.user.uid + "/profile.jpg").put(pic)
           .then(() => {
-            console.log("YES! YES! YES!");
+            console.log('picture loaded succesfully');
           });
-      })
-      .catch(err => {
-        console.log("NO! NO! NO!");
-      })
-      .then(() => setUserReg(true))
-      .catch(err => console.log(err));
+      }).then(() => {
+        try {
+          setUserReg(true)
+
+        } catch (error) {
+          setError(true)
+        }
+      }
+      )
+
   };
 
   return (
     <Fragment>
-      { userReg ?
 
-
-
-
-        <h1>USER CREATED</h1>
-
-
-
-        :
       <div className="form_div">
+        {error ? <Error mensaje="You already have an account" /> : null}
+        {userReg ? <Error mensaje="User Created Succesfully" /> : null}
+
       <form onSubmit={logInUser} className="form" action="">
         <div className="form__group field">
           <input
@@ -94,15 +97,8 @@ const Register = () => {
           />
         </div>
       </form>
-    </div>
-
-
-
-
-
-
-
-      }
+        <p className="p_dhac">Have an account? <Link className="Link" exact to="/">Sing in</Link></p>
+        </div>
 
     </Fragment>
   );

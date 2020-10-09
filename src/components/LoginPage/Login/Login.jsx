@@ -2,12 +2,15 @@ import React, { Fragment, useState } from "react";
 import "./Login.css";
 import { auth } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
 import DashboardPage from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/DashboardPage/DashboardPage.jsx'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/Error/Error.jsx'
 
 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [error, setError] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false);
 
 
@@ -18,9 +21,10 @@ const Login = () => {
     auth
       .signInWithEmailAndPassword(email, pass)
       .then(() => { return setLoggedIn(true) })
-      .catch(err => alert(err));
+      .catch(() => { setError(true) });
 
   };
+
 
 
 
@@ -35,7 +39,11 @@ const Login = () => {
         :
 
 
-        (<div className="form_div">
+        (
+
+
+          <div className="form_div">
+            {error ? <Error mensaje="Enter your password or email correctly" /> : null}
         <form onSubmit={logInUser} className="form" action="">
           <div className="form__group field">
             <input
@@ -72,6 +80,7 @@ const Login = () => {
             />
           </div>
         </form> 
+            <p className="p_dhac">Dont have an account?   <Link to="/register">   Sing up</Link></p>
         </div>)
 
 

@@ -1,4 +1,8 @@
+.form_div{
+  
+  justify-content: center;
 
+}
 
 .form__group {
     position: relative;
@@ -55,7 +59,23 @@
 
   }
   
+.p_dhac{
+  position: relative;
+  top: 300px;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+  color: #D89719;
 
+
+}
+.Link{
+    text-decoration: none;
+
+}
 
 
   

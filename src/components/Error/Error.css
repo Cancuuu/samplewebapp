@@ -1,0 +1,14 @@
+.container_error{
+    justify-content: center;
+    width: 700px;
+    height: 30px;
+    font-size: 10px;
+    font-family: 'Noto Sans JP';
+    color: #D89719;
+    display: flex;
+    position: relative;
+    top: 250px;
+    left: 32%;
+    text-align: center;
+    border: 3px #D89719 solid ;    
+}
