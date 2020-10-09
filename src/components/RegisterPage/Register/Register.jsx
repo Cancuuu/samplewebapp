@@ -4,7 +4,7 @@ import {
   auth,
   storage,
 } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/Error/Error.jsx'
 
 

@@ -1,8 +1,8 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import LoginPage from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/LoginPage/LoginPage.jsx'
-import { auth, storage, user } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
+import { auth, storage } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
 import './Dashboard.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 

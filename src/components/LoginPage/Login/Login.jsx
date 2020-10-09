@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import "./Login.css";
 import { auth } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
 import DashboardPage from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/DashboardPage/DashboardPage.jsx'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/Error/Error.jsx'
 
 
