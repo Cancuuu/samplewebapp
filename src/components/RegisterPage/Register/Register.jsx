@@ -20,6 +20,8 @@ const Register = () => {
     setPic(e.target.files[0]);
   };
 
+
+
   const logInUser = e => {
     e.preventDefault();
     auth
@@ -29,16 +31,15 @@ const Register = () => {
           .then(() => {
             console.log('picture loaded succesfully');
           });
-      }).then(() => {
-        try {
-          setUserReg(true)
-
-        } catch (error) {
-          setError(true)
-        }
+      }).then(err => {
+        setUserReg(true)
+      })
+      .catch(() => {
+        setError(true)
+        setUserReg(false)
       }
-      )
 
+    )
   };
 
   return (
