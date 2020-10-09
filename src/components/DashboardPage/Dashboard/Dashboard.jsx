@@ -8,18 +8,23 @@ import { Link } from 'react-router-dom';
 
 const DashboardPage = () => {
 
+
+    //Declare the states-------------------------//
     const [profilepic, setProfilePic] = useState(null);
     const [useractive, setUserActive] = useState(false);
-   
-    
+   //--------------------------------------------//
+
+
+
+
+    //Declare 'user' as a variable for access to the user email//
     const user = auth.currentUser;
+    //---------------------------//
 
 
 
 
-
-
-
+    //Extracts the profile picture of the active user-----------------------------------------
     auth.onAuthStateChanged(user => {
         if (user) {
             storage.ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(imgUrl => {
@@ -27,7 +32,12 @@ const DashboardPage = () => {
             })
         }
     })
+    //-----------------------------------------------------------------------------------------
 
+
+
+
+    //Function for when the user presses log out
     const LogOut = () => {
         auth.signOut();
         auth.onAuthStateChanged(function (user) {
@@ -40,6 +50,7 @@ const DashboardPage = () => {
             }
         });
     }
+    //------------------------------------------
 
 
     return (

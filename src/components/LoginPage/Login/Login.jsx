@@ -8,13 +8,17 @@ import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src
 
 
 const Login = () => {
+
+
+  // Declare the states-------------------------//
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false);
+  //--------------------------------------------//
 
 
-
+  //Function that allows the user to logIn-----
   const logInUser = e => {
     e.preventDefault();
 
@@ -24,7 +28,7 @@ const Login = () => {
       .catch(() => { setError(true) });
 
   };
-
+  //------------------------------------------//
 
 
 

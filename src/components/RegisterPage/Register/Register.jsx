@@ -10,19 +10,27 @@ import Error from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src
 
 
 const Register = () => {
+
+
+  // Declare the states-------------------------//
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [pic, setPic] = useState(null);
   const [userReg, setUserReg] = useState(false);
   const [error, setError] = useState(false) 
+  //--------------------------------------------//
 
+
+  //function that allows to read the input of the profile picture//
   const uploadPic = e => {
     setPic(e.target.files[0]);
   };
+  //----------------------------//
 
 
 
-  const logInUser = e => {
+  //Function that creates a new user and publish the profile pic to Firebase Storage//
+  const createUser = e => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, pass)
@@ -41,6 +49,7 @@ const Register = () => {
 
     )
   };
+  //--------------------------------------------------------------------------------//
 
   return (
     <Fragment>
@@ -49,7 +58,7 @@ const Register = () => {
         {error ? <Error mensaje="You already have an account" /> : null}
         {userReg ? <Error mensaje="User Created Succesfully" /> : null}
 
-      <form onSubmit={logInUser} className="form" action="">
+        <form onSubmit={createUser} className="form" action="">
         <div className="form__group field">
           <input
             onChange={e => {
