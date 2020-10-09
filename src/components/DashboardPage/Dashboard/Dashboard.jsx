@@ -1,14 +1,22 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import LoginPage from '/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/components/LoginPage/LoginPage.jsx'
 import { auth, storage, user } from "/home/cancu/Documentos/Projects/sampleWebApp/samplewebapp/src/firebase.js";
 import './Dashboard.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
+
 const DashboardPage = () => {
 
     const [profilepic, setProfilePic] = useState(null);
     const [useractive, setUserActive] = useState(false);
+   
+    
+    const user = auth.currentUser;
+
+
+
+
 
 
 
@@ -50,7 +58,7 @@ const DashboardPage = () => {
                         <img className="profile_pic" src={profilepic} alt="" />
                     </div>
                     <div className="div_username">
-
+                        <p>{user.email}</p>
                     </div>
                     <div className="div_logout">
 
